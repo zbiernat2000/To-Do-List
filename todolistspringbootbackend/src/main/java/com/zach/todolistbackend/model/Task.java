@@ -9,19 +9,28 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "is_completed")
-    private boolean isCompleted;
+    @Column(name = "completion")
+    private String completion;
 
     @Column(name = "description")
     private String description;
 
-    public Task(String description) {
+    public Task(){
+        this.description = null;
+        this.completion = null;
+    }
+    public Task(String description, String completion) {
         super();
         this.description = description;
+        this.completion = completion;
     }
 
-    public Task(){
-        this.isCompleted = false;
+    public String getCompletion() {
+        return completion;
+    }
+
+    public void setCompletion(String isCompleted) {
+        this.completion = isCompleted;
     }
 
     public long getId() {
@@ -30,14 +39,6 @@ public class Task {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public boolean isCompleted() {
-        return isCompleted;
-    }
-
-    public void setCompleted(boolean completed) {
-        isCompleted = completed;
     }
 
     public String getDescription() {

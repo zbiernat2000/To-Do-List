@@ -46,7 +46,7 @@ public class TaskController {
             .orElseThrow(() -> new ResourceNotFoundException("Task not found with Id of " + id));
 
     task.setDescription(taskDetails.getDescription());
-    task.setCompleted(taskDetails.isCompleted());
+    task.setCompletion(taskDetails.getCompletion());
 
     Task updateTask = taskRepository.save(task);
     return ResponseEntity.ok(updateTask);
